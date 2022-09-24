@@ -2,3 +2,6 @@ package-lock.json
 node_modules/
 .Ds_store
 files/
+.vscode/launch.json
+.gitignore
+.vscode/tasks.json
