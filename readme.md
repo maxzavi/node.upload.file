@@ -66,3 +66,5 @@ curl --location --request POST 'http://localhost:3000/upload' \
 ```
 
 By git clone, after create folder **files** in home, and run **npm i**
+
+Add git actions for build and push image docker, add secrets **DOCKER_USERNAME** and **DOCKER_PASSWORD** in repository, in **Security** -> **Secrets**
