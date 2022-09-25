@@ -1,9 +1,10 @@
 const express = require('express');
 const multer = require("multer");
+const fs = require('fs');
 
 const app = express();
 
-const pathTarget='/files';
+const pathTarget='./files';
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, pathTarget); //important this is a direct path from our current file to storage location
@@ -15,12 +16,12 @@ const fileStorageEngine = multer.diskStorage({
 
 const upload = multer({ storage: fileStorageEngine });
  
-//'file' name in field file
+//'filename' name in field file
 app.post('/upload', upload.single('filename') , (req, res)=>{
   //Rename after post file
   fs.renameSync(`${pathTarget}/Upload_${req.file.originalname}`, 
     `${pathTarget}/${req.file.originalname}`);
-  res.send(`File ${req.file.filename} upload OK!!`);
+  res.send(`File ${req.file.originalname} upload OK!!`);
 });
   
 app.listen(3000,()=>{
